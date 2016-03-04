@@ -1,0 +1,7 @@
+; task 2.2
+; written in the stack values of registers with the day and month of your birth
+mov A,15
+mov B,05
+push A
+push B
+
