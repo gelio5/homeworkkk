@@ -1,5 +1,2 @@
-; task 2.1
-; written in the registers A and B the day and month of your birth
-
-mov A,15
-mov B,5
+MOV A,15
+MOV B,5
