@@ -1,0 +1,5 @@
+MOV A,15
+PUSH A
+MOV B,5
+PUSH B
+

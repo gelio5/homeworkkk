@@ -1,0 +1,128 @@
+MOV A, 4	;Число на входе, факторила которого надо вывести
+CMP A, 0
+JZ ZERO
+CMP A, 6
+JAE WST
+MOV B,A  
+
+ ZRP:  
+   PUSH A 
+   MOV D, 232
+   ADD B, 48
+   MOV [D], B
+   MOV B,A
+ ILLUSTR:
+   MOV D, 233
+   MOV [D], 33
+   INC D
+   MOV [D], 61
+   MOV C, 49
+
+ PIN:
+   INC D
+   MOV [D], C
+   INC C
+   INC D
+   MOV [D], 42
+   DEC A
+   CMP A,0
+   JA PIN
+   MOV [D], 61
+   POP A
+
+ FACTOR:
+   DEC B
+   CMP B,0
+   JBE PAS
+   MUL B
+   JMP FACTOR  
+
+ ZERO:
+   MOV A,1
+   JMP ZRP
+
+ PAS:
+   MOV B,A
+
+ HAD:
+   DIV 100
+   PUSH A
+   MUL 100
+   SUB B,A
+   MOV A,B
+   DIV 10
+   PUSH A
+   MUL 10
+   SUB B,A
+   MOV A,B
+
+ UNIT:
+   MOV D,B
+   POP A
+   MOV C,A
+   POP A
+   MOV B,A
+   MOV A,D
+   PUSH A
+   MOV A,C
+   PUSH A
+   MOV A,B
+   MOV B,253
+
+ A_XIT:
+   CMP A,0
+   JNZ CHECK_1		
+
+ FILTRATION_1:
+   INC B
+   POP A
+   CMP A,0
+   JNZ CHECK_1
+
+ FILTRATION_2:
+   INC B
+   POP A
+
+ CHECK_1:
+   MOV D,A
+   MOV A,0
+   JMP CD
+
+ CHECK_2:
+   POP A
+   MOV D,A
+   MOV A,0
+
+ CD: 
+   CMP D,A
+   JZ OUTPUT
+   INC A
+   JMP CD
+
+ OUTPUT:
+   ADD A, 48
+   MOV [B],A
+   INC B
+   CMP B,0
+   JZ END
+   CMP B,255
+   JBE CHECK_2
+
+ END:
+   HLT
+
+ STOP:
+   DB "RAM FULL"
+   DB 0
+
+ WST:
+   MOV C, STOP 
+   MOV D, 232
+
+ ERROR:
+   MOV A, [C]
+   MOV [D], A
+   INC C
+   INC D
+   CMP B, [C]   
+   JNZ ERROR
