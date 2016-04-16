@@ -1,4 +1,7 @@
 MOV A, 60 	;Число на входе
+CALL FCT
+HLT
+FCT:
 MOV B,A 
 CMP A, 0
 JZ ZERO
@@ -79,10 +82,7 @@ MOV B,A
    JZ END
    CMP B,255
    JBE CHECK_2
- 
- END:
-   HLT
- 
+
   STOP:
    DB "MEMORY OVERFLOW!"
    DB 0
@@ -98,4 +98,8 @@ MOV B,A
    JNZ ERROR
   
  ZERO:
-   MOV A,1
+   MOV A,1 
+
+ END:
+   RET
+ 
