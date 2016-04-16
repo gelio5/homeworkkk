@@ -1,5 +1,5 @@
 MOV A,15
-MOV B,5
 PUSH A
+MOV B,5
 PUSH B
 

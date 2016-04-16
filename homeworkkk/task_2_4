@@ -1,14 +1,14 @@
 JMP START
-RAM: 
-DB "15/05"
-DB 0
-START:
-MOV B,RAM
-MOV D,232
-OUT:
-MOV A,[B]
-MOV [D],A
-INC B
-INC D
-CMP C,[B]
-JNZ OUT
+ RAM: 
+   DB "15/05"
+   DB 0
+ START:
+   MOV B,RAM
+   MOV D,232
+ OUT:
+   MOV A,[B]
+   MOV [D],A
+   INC B
+   INC D
+   CMP C,[B]
+   JNZ OUT
