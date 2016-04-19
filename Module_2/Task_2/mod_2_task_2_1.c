@@ -8,6 +8,6 @@ int main(){
 			fday=iday%365;
 			month=fday/30;
 			fday=fday%30;
-		printf("%d days it`s %d years, %d monts and %d days",iday,year,month,fday);
+		printf("%d days it`s %d years, %d monts and %d days\n",iday,year,month,fday);
 	return 0;
-	}
+}
