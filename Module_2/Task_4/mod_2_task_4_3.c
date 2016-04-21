@@ -1,32 +1,25 @@
 #include <stdio.h>
 #include <assert.h>
 
-void fibo(int);
+long int fibo(long int);
 
 int main(void){
-	int i;
+	long int k,i;
 	printf("Введите количество чисел ряда, которые вы хотите получить.\n");
-	scanf("%d",&i);
-	fibo(i);
+	scanf("%lu",&i);
+	for (k=0;k<i;++k){
+		printf("%lu ",fibo(k));
+	}
+	printf("\n");
 	return 0;	
 }
 
-void fibo(int i){
-	int l=0,m=1,fib;
-	assert(i>0);
-	if (i==1)
-		printf("%d",l);
-	else
-		if (i==2)
-			printf("%d %d",l,m);
-		else{
-			printf("%d %d ",l,m);
-			for (int k=1;k<=(i-2);++k){
-		fib=l+m;
-		l=m;
-		m=fib;
-		printf("%d ",m);
-			}
-		}
-	printf("\n");
+long int fibo(long int i){
+		if (i==0)
+			return 0;
+		else
+			if (i==1)
+				return 1;
+			else
+				return (fibo(i-1)+fibo(i-2));
 }

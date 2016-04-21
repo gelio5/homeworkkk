@@ -2,19 +2,19 @@
 #include <string.h>
 
 int main(void){
-	int i=1,j=1;
+	int j=1,i;
 	char strn[10000],strf[10000];
 		printf("Please input the string.\n");
-		scanf("%s",strn);
-			while(i<strlen(strn)){
-				if (strn[i]!=strn[i+1]){
-					printf("%c",strn[i]);
-					i++;
-				}
-				else{
-					i++;
-				}
+		gets(strn);
+		while (i<(strlen(strn))){
+			if (strn[i+1]!=strn[i]){
+				printf("%c",strn[i]);
+				++i;
+			}else
+			while (strn[i]==strn[i+1]){
+				++i;
 			}
-		printf("\n");
+		}
+	printf("\n");
 	return 0;
 }
