@@ -1,4 +1,5 @@
 #include <stdio.h>
+#define max(ch1,ch2) ((ch1>=ch2)?ch1:ch2)
 
 void sravp(int);
 
@@ -18,10 +19,7 @@ void sravp(int n){
 				ch2=((a*el+c)%m);
 				el=ch2;
 				printf("%d   %d - ",ch1,ch2);
-				if (ch1>=ch2)
-					printf("%d\n",ch1);
-				else
-					printf("%d\n",ch2);
+				printf("%d\n",max(ch1,ch2));
 				i+=2;
 			}
 }

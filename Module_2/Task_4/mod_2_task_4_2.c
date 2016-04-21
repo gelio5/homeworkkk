@@ -1,40 +1,37 @@
 #include <assert.h>
 #include <stdio.h>
 #include <math.h>
+#include <float.h>
 
 int main(void){
 	float a,b,res;
 	char oper;
 	scanf("%f%c%f",&a,&oper,&b);
-	assert(a>(-3.4*pow(10,38)));
-	assert(a<(3.4*pow(10,38)));
-	assert(b>(-3.4*pow(10,38)));
-	assert(b<(3.4*pow(10,38)));
-	if (oper=='+'){
-	 	res=a+b;
-	 }
-	 else{
-	 	if (oper=='-'){
-	 		res=a-b;
-	 	}else{
-	 		if (oper=='*'){
-	 			res=a*b;
-	 		}else{
-	 			if (oper=='/'){
-	 				assert(b!=0);
-	 				res=a/b;
-	 			}else{
-	 				if (oper=='%'){
-	 					res=0.01*a*b;
-	 				}else{
-	 					if (oper=='^'){
-	 						res=pow(a,b);
-	 					}
-	 				}
-	 			}
-	 		}
-	 	}
-	 }
-	 printf("%.2f\n",res);
-	 return 0;
+	assert(a>=FLT_MIN);
+	assert(a<=FLT_MAX);
+	assert(b>=FLT_MIN);
+	assert(b<=FLT_MAX);
+	switch(oper){
+		case '+':
+			res=a+b;
+			break;
+		case '-':
+			res=a-b;
+			break;
+		case '*':
+			res=a*b;
+			break;
+		case '/':
+			assert(b!=0);
+			res=a/b;
+			break;
+		case '%':
+			res=0.01*a*b;
+			break;
+		case '':
+			res=pow(a,b);
+			break;
+	}
+	printf("%.2f\n",res);
+	return 0;
 }
