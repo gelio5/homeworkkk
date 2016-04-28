@@ -32,6 +32,8 @@ int main(void){
 			v1=cma;
 			v=v1*100;
 			h=h1;
+			if (h>360)
+				h-=360;
 		printf("%d,%.1f%%,%d%% - ",h,s,v);
 		if (s==0)
 			switch(v){
