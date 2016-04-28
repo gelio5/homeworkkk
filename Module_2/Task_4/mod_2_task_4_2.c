@@ -28,7 +28,7 @@ int main(void){
 		case '%':
 			res=0.01*a*b;
 			break;
-		case '':
+		case '^':
 			res=pow(a,b);
 			break;
 	}
