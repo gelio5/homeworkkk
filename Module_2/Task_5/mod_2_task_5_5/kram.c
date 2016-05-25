@@ -1,3 +1,5 @@
+#include "kram.h"
+
 float opr(int x, float mat[x][x]){
 	float mx[x-1][x-1], det=0;
 	int i, a, b,n;

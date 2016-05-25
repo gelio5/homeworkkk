@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
+#include "kram.c"
 #include "kram.h"
 
 int main(void){

@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <assert.h>
-#include "kram.h"
+#include <kram.h>
 
+int coun = 0;
 int main(void){
 	int coun = 0;
 	int x,i,j;
@@ -35,6 +36,7 @@ int main(void){
 		}
 		else
 			printf("Данная система имеет бесконечно большое количество решений.\n");
-		printf("%d",coun);
+		printf("%d\n",coun);
 	return 0;
 }
+
