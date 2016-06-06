@@ -1,36 +1,46 @@
 #include <stdio.h>
-#include <string.h>
 
 void copy(char *,char *);
+void invert(char *,char *);
 
 int main(void){
 	char str1[1000],str2[1000];
 	int i=0,a,j;
-	while ((str1[i]=getchar()) !='\n')
-		i++;
-	str1[strlen(str1)-1]='\0';
-	j=strlen(str1)-1;
+	gets(str1);
 	printf("If you need to invert string, please input 1.\nIf you don`t need it input 0\n");
 	scanf("%d",&a);
-	if (a==0){
-		for (i=0;i<strlen(str1)+1;++i)
-			copy(&str1[i],&str2[i]);	
-	}else{
-		if (a==1){
-			i=0;
-			while (str1[i]!='\0'){
-				copy(&str1[i],&str2[j]);
-				++i;
-				--j;
-			}
+	if (a==0)
+		copy(&str1[0],&str2[0]);else{
+		if (a==1)
+			invert(&str1[0],&str2[0]);
 		}	
-		
-	}
-	str2[strlen(str1)]='\0';
 	printf("%s\n",str2);
 	return 0;
 }
 
 void copy(char *a,char *b){
-	*b=*a;
+	do{
+		*b=*a;
+		++a;
+		++b;
+	}while(*a!=0);
+	*b=0;
+}
+
+void invert(char *a,char *b){
+	int i=0,k=0;
+	char *c;
+		c=a;
+		while (*c!=0){
+			c++;
+			i++;
+		}
+		i--;
+		while (a[k]){
+			*b=*(a+i);
+			--i;
+			++k;
+			++b;
+		}
+		*b=0;
 }

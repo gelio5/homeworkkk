@@ -1,9 +1,10 @@
 float opr(int x, float mat[x][x]);
 float oprs(int x, float mat[x][x],int i, float s[x]);
+int count(void);
 
 float opr(int x, float mat[x][x]){
 	extern int coun ;
-	coun++;
+	count();
 	float mx[x-1][x-1], det=0;
 	int i, a, b,n;
 		if(x==1)
@@ -32,7 +33,7 @@ float opr(int x, float mat[x][x]){
 
 float oprs(int x, float mat[x][x],int i, float s[x]){
 	extern int coun;
-	coun++;
+	count();
 	int j,l,m;
 	float obr[x][x];
 		for (l=0;l<x;++l)
@@ -42,3 +43,8 @@ float oprs(int x, float mat[x][x],int i, float s[x]){
 			obr[j][i]=s[j];
 	return(opr(x,obr));
 }
+
+int count(){
+	static int count=0;
+	count++;
+	return (count);}

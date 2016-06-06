@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <assert.h>
-#include <kram.h>
+#include "kram.h"
 
-int coun = 0;
 int main(void){
-	int coun = 0;
 	int x,i,j;
 	printf("Введите количество неизветсных в уравнении.\n");
 	scanf("%d",&x);
@@ -36,7 +34,7 @@ int main(void){
 		}
 		else
 			printf("Данная система имеет бесконечно большое количество решений.\n");
-		printf("%d\n",coun);
+		printf("Фунции были вызваны %d раз\n",count());
 	return 0;
 }
 
